@@ -13,3 +13,7 @@ up:
 
 down:
 	@docker compose down
+
+
+pg:
+	docker compose exec -it postgres psql -U $(DB_USER) -d $(DB_NAME)
