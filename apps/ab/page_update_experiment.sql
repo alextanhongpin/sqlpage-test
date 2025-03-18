@@ -1,3 +1,5 @@
+SELECT 'dynamic' AS component, sqlpage.run_sql('apps/ab/shell.sql') AS properties;
+
 -- set experiment = (select row_to_json(experiments) from experiments where id = $id::int);
 set experiment = (select json_build_object(
 		'id', id,
@@ -10,6 +12,7 @@ set experiment = (select json_build_object(
 
 select
 	'form' as component,
+	'Update Experiment' as title,
 	'action_update_experiment.sql' as action
 	;
 

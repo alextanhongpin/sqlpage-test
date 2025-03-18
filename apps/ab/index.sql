@@ -38,6 +38,8 @@ create table if not exists experiment_events (
 );
 
 
+SELECT 'dynamic' AS component, sqlpage.run_sql('apps/ab/shell.sql') AS properties;
+
 select
     'text' as component,
     'A/B Experiment' as title,
@@ -60,13 +62,15 @@ select
     true as sort,
     true as striped_rows,
     'delete' as markdown,
-    'edit' as markdown
+    'edit' as markdown,
+    'view' as markdown
     ;
 
 
 select *,
     concat('[Delete](action_delete_experiment.sql?id=', id, ')') as delete,
-    concat('[Edit](page_update_experiment.sql?id=', id, ')') as edit
+    concat('[Edit](page_update_experiment.sql?id=', id, ')') as edit,
+    concat('[View](experiment.sql?id=', id, ')') as view
 from experiments
 order by id desc
 limit 100;

@@ -1,5 +1,8 @@
+SELECT 'dynamic' AS component, sqlpage.run_sql('apps/ab/shell.sql') AS properties;
+
 select
 	'form' as component,
+	'Create Experiment' as title,
 	'action_create_experiment.sql' as action;
 
 select 
