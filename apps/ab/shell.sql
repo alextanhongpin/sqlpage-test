@@ -1,14 +1,26 @@
+-- Check if the user is logged in, otherwise redirect user back to login page.
 select
-	'authentication' as component,
-	'$argon2i$v=19$m=8,t=1,p=1$YWFhYWFhYWE$oKBq5E8XFTHO2w' as password_hash, -- this is a hash of the password 'password'
-	sqlpage.basic_auth_password () as password
+	'redirect' as component,
+	'page_login.sql' as link
+where
+	(
+		select
+			not exists (
+				select
+					1
+				from
+					sessions
+				where
+					token = sqlpage.cookie ('session_token')
+			)
+	)
 ;
 
 
--- this is the password that the user entered in the browser popup
 select
 	'shell' as component,
 	'A/B Experiment' as title,
 	'database' as icon,
-	'index.sql' as link
+	'index.sql' as link,
+	JSON('{"title":"Logout","link": "action_logout.sql"}') as menu_item
 ;

@@ -1,3 +1,28 @@
+create table if not exists users (
+	id int generated always as identity,
+	username text not null,
+	password_hash text not null,
+	created_at timestamptz not null default now(),
+	updated_at timestamptz not null default now(),
+	primary key (id),
+	unique (username)
+)
+;
+
+
+create table if not exists sessions (
+	id int generated always as identity,
+	user_id int not null,
+	token text not null,
+	created_at timestamptz not null default now(),
+	updated_at timestamptz not null default now(),
+	primary key (id),
+	foreign key (user_id) references users (id),
+	unique (token)
+)
+;
+
+
 create table if not exists experiments (
 	id int generated always as identity,
 	name text not null,
