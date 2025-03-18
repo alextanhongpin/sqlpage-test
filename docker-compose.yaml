@@ -5,7 +5,7 @@ services:
       - 3000:8080
     volumes:
       - .:/var/www # Where your SQL files are stored
-      #/etc/sqlpage: the directory where your sqlpage.json configuration file⁠
+      - ./sqlpage/:/etc/sqlpage/ # the directory where your sqlpage.json configuration file
     environment:
       SQLPAGE_ENVIRONMENT: development
       DATABASE_URL: postgresql://$DB_USER:$DB_PASS@postgres:$DB_PORT/$DB_NAME

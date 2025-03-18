@@ -70,3 +70,7 @@ select *,
 from experiments
 order by id desc
 limit 100;
+
+
+select 'hello' as component,
+'world' as name;
