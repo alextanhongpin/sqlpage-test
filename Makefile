@@ -1,13 +1,7 @@
 include .env
 export
 
-install:
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	brew install sqlpage
-	sqlpage
-
-
-up:
+up: open
 	@docker compose up -d
 
 
@@ -15,5 +9,15 @@ down:
 	@docker compose down
 
 
+open:
+	@open http://localhost:3000
+
+
 pg:
 	docker compose exec -it postgres psql -U $(DB_USER) -d $(DB_NAME)
+
+
+install:
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	brew install sqlpage
+	sqlpage
