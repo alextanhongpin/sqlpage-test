@@ -1,14 +1,21 @@
-SELECT 'list' AS component, 'Popular websites' AS title;
+select
+	'list' as component,
+	'Popular websites' as title
+;
 
-SELECT
-    'Alert' AS title,
-    'bell' AS icon,
-    'Example of alert component' AS description,
-    '001_alert.sql' AS link,
-    true as active;
 
-SELECT
-    'Create User' AS title,
-    'user' AS icon,
-    'View and create user' AS description,
-    '002_manage_users.sql' AS link;
+select
+	'Alert' as title,
+	'bell' as icon,
+	'Example of alert component' as description,
+	'001_alert.sql' as link,
+	true as active
+;
+
+
+select
+	'Create User' as title,
+	'user' as icon,
+	'View and create user' as description,
+	'002_manage_users.sql' as link
+;

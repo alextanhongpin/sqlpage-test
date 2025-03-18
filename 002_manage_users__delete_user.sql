@@ -1,3 +1,5 @@
-DELETE FROM users 
-WHERE id = CAST($delete AS INT)
-RETURNING 'redirect' AS component, '002_manage_users.sql' AS link;
+delete from users
+where
+	id = CAST($delete as INT) RETURNING 'redirect' as component,
+	'002_manage_users.sql' as link
+;

@@ -21,3 +21,7 @@ install:
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew install sqlpage
 	sqlpage
+
+
+format:
+	find . -name "*.sql" -exec npx sql-formatter --config sqlformatter.json --fix {} \;

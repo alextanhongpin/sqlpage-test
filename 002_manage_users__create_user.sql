@@ -1,2 +1,8 @@
-INSERT INTO users(name) VALUES(:username)
-RETURNING 'redirect' AS component, '002_manage_users.sql' AS link;
+insert into
+	users (name)
+values
+	(:username)
+returning
+	'redirect' as component,
+	'002_manage_users.sql' as link
+;
