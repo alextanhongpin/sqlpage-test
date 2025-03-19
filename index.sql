@@ -17,5 +17,13 @@ select
 	'Create User' as title,
 	'user' as icon,
 	'View and create user' as description,
-	'002_manage_users.sql' as link
+	'apps/ab/page_create_user.sql' as link
+;
+
+
+select
+	'A/B Experiment' as title,
+	'settings' as icon,
+	'View and create new A/B experiment' as description,
+	'apps/ab/index.sql' as link
 ;

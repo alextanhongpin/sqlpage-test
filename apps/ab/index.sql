@@ -108,7 +108,7 @@ select
 		')'
 	) as delete,
 	concat('[Edit](page_update_experiment.sql?id=', id, ')') as edit,
-	concat('[View](experiment.sql?id=', id, ')') as view
+	concat('[View](page_experiment_detail.sql?id=', id, ')') as view
 from
 	experiments
 order by
